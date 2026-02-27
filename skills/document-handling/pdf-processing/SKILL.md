@@ -16,7 +16,9 @@ This skill allows the agent to process, analyze, and extract information from PD
 
 ## Prerequisites
 
-To effectively process PDFs, the host system needs standard CLI tools. Check if they are installed before proceeding. If they are not installed, you can attempt to install them (e.g., via `apt-get install poppler-utils qpdf` on Debian/Ubuntu, or `brew install poppler qpdf` on macOS).
+To effectively process PDFs, the host system needs standard CLI tools. Check if they are installed before proceeding. If they are not installed, you MUST ask the user to install them first, OR use `sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y poppler-utils qpdf` (on Debian/Ubuntu) if authorized.
+
+**Important Error Handling:** Never try to install packages automatically without `sudo` if you are not the root user, as it will cause the process to hang waiting for a password. Ask the user for permission or instruct them to install it.
 
 ```bash
 # Check for pdftotext (poppler-utils)
